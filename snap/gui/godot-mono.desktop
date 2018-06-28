@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Godot Engine (Mono Version)
+GenericName=Libre game engine
+Comment=Multi-platform 2D and 3D game engine with a feature rich editor
+Exec=godot-mono -p
+Icon=${SNAP}/meta/gui/godot-mono.png
+Terminal=false
+Type=Application
+Categories=Development;IDE;

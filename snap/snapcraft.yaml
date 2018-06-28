@@ -1,0 +1,62 @@
+
+name: godot-mono
+version: '3.0.4'
+summary: Godot Engine (Mono version) – Multi-platform 2D and 3D game engine
+description: |
+  Godot Engine is a feature-packed, cross-platform game engine to
+  create 2D and 3D games from a unified interface. It provides a
+  comprehensive set of common tools, so that users can focus on
+  making games without having to reinvent the wheel. Games can
+  be exported in one click to a number of platforms, including
+  the major desktop platforms (Linux, Mac OSX, Windows) as well
+  as mobile (Android, iOS) and web-based (HTML5) platforms..
+  This package contains the Mono version with (C# support)
+
+confinement: strict
+
+apps:
+  godot-mono:
+    command: desktop-launch $SNAP/bin/Godot
+    plugs:
+      - network
+      - network-bind
+      - opengl
+      - desktop
+      - desktop-legacy
+      - x11
+      - pulseaudio
+      - home
+      - removable-media
+
+parts:
+  godot-mono:
+    after: [desktop-glib-only]
+    plugin: dump
+    source:
+      - on amd64: https://downloads.tuxfamily.org/godotengine/3.0.4/mono/Godot_v$SNAPCRAFT_PROJECT_VERSION-stable_mono_x11_64.zip
+      - on i386: https://downloads.tuxfamily.org/godotengine/3.0.4/mono/Godot_v$SNAPCRAFT_PROJECT_VERSION-stable_mono_x11_32.zip
+    stage-packages:
+      - libgl1-mesa-dri
+      - libglu1-mesa
+      - libgl1-mesa-glx
+      - libgles2-mesa
+      - libflac8
+      - libxcursor1
+      - libxi6
+      - libxinerama1
+      - libxrandr2
+      - libxrender1
+      - libasound2
+      - libasyncns0
+      - libogg0
+      - libpulse0
+      - libsndfile1
+      - libtheora0
+      - libvorbis0a
+      - libvorbisenc2
+      - libvorbisfile3
+      - libwebp5
+    organize:
+      'usr/lib/*/pulseaudio/lib*': 'lib/'
+      'Godot_v3.0.4-stable_mono_x11_*/*.dll': 'bin/'      
+      'Godot_v3.0.4-stable_mono_x11_*/Godot_v3.0.4-stable_mono_x11.*': 'bin/Godot'
