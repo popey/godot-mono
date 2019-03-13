@@ -20,7 +20,7 @@ architectures:
 
 apps:
   godot-mono:
-    command: desktop-launch $SNAP/bin/Godot
+    command: $SNAP/bin/desktop-launch $SNAP/bin/Godot
     environment:
       LD_LIBRARY_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$LD_LIBRARY_PATH"
 
