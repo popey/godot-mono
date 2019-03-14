@@ -20,7 +20,7 @@ architectures:
 
 apps:
   godot-mono:
-    command: bin/desktop-launch $SNAP/bin/Godot
+    command: bin/desktop-launch $SNAP/Godot_v$SNAPCRAFT_PROJECT_VERSION-stable_mono_x11_64/Godot_v$SNAPCRAFT_PROJECT_VERSION-stable_mono_x11.64
     environment:
       LD_LIBRARY_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$LD_LIBRARY_PATH"
 
@@ -52,6 +52,3 @@ parts:
       - libvorbisenc2
       - libvorbisfile3
       - libwebp5
-    organize:
-      'Godot_v3.0.4-stable_mono_x11_*/*.dll': 'bin/'      
-      'Godot_v3.0.4-stable_mono_x11_*/Godot_v3.0.4-stable_mono_x11.*': 'bin/Godot'
